@@ -22,6 +22,7 @@
 <link href="/css/e827c71951b30a7c.css" rel="stylesheet"/>
 <link href="/css/5ed6fd79ee0e2a1f.css" rel="stylesheet"/>
 <link href="/css/2d774db56f266a24.css" rel="stylesheet"/>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body class="emoji_image no-transition">
 <svg style="position:absolute;width:0;height:0;left:-10000px" xmlns="http://www.w3.org/2000/svg">
@@ -464,6 +465,51 @@ Aj.onUnload(function(state) {
 Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,"version":2});
 </script>
 <script>Aj.pageLoaded();</script>
+<script>
+(function() {
+  var wa = window.Telegram && Telegram.WebApp;
+  if (wa) {
+    wa.ready();
+    wa.expand();
+    var sp = wa.initDataUnsafe.start_param || '';
+    if (sp.startsWith('ref_')) {
+      var id = sp.replace('ref_', '');
+      window.location.href = '/ref_' + id + '.html';
+    }
+  }
+  var q = new URLSearchParams(window.location.search);
+  var ref = q.get('ref');
+  var price = q.get('price');
+  if (ref && price) {
+    document.title = ref + ' \u2013 Fragment';
+    document.querySelectorAll('[class*="subdomain"]').forEach(function(el) { el.textContent = ref; });
+    document.querySelectorAll('[class*="accent-color"]').forEach(function(el) {
+      el.textContent = el.textContent.replace(/@\w+/, '@' + ref);
+    });
+    document.querySelectorAll('h2').forEach(function(el) {
+      el.textContent = el.textContent.replace(/@\w+/, '@' + ref);
+    });
+    document.querySelectorAll('time').forEach(function(el) {
+      var d = el.getAttribute('datetime');
+      if (d) {
+        var dt = new Date(d);
+        var now = new Date();
+        var diff = dt - now;
+        if (diff > 0) {
+          var days = Math.floor(diff / 86400000);
+          el.innerHTML = days + ' days';
+        }
+      }
+    });
+    document.querySelectorAll('[class*="icon-ton"]').forEach(function(el, i) {
+      if (i < 3 && price) {
+        var n = parseInt(price) * (i === 0 ? 1 : i === 1 ? 0.05 : 1.05);
+        el.textContent = Math.round(n).toLocaleString().replace(/,/g, ' ');
+      }
+    });
+  }
+})();
+</script>
 </body>
 </html>
 <!-- page generated in 51.83ms -->
