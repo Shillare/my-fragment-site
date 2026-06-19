@@ -128,7 +128,7 @@ function ajInit(options) {
         } else if (xhr.status == 401) {
           location.href = '/auth';
         } else if (xhr.readyState > 0) {
-          location.reload();
+          return;
         }
       }
     });

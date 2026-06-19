@@ -1106,9 +1106,8 @@ var Auction = {
       state.$makeOfferPopup = $('.js-make-offer-popup');
       state.$makeOfferForm = $('.js-make-offer-form');
       Main.initForm(state.$makeOfferForm);
-      state.needUpdate = true;
+      state.needUpdate = false;
       state.updLastReq = +Date.now();
-      state.updStateTo = setTimeout(Auction.updateState, Main.UPDATE_PERIOD);
       Assets.init();
       Account.init();
     });
