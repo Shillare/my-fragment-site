@@ -171,7 +171,7 @@
 <div class="tm-section-countdown">
 <span class="tm-countdown-label short">Ends in</span>
 <span class="tm-countdown-label full">Auction ends in</span>
-<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-27T11:56:45.184157Z"><span class="reel"><b class="digit timer-d" data-val="7 days">7 days</b></span><span class="reel"><b class="digit timer-h0" data-val="0">0</b><b class="digit timer-h1" data-val="2">2</b></span><span class="reel"><b class="digit timer-m0" data-val="5">5</b><b class="digit timer-m1" data-val="9">9</b></span><span class="reel"><b class="digit timer-s0" data-val="5">5</b><b class="digit timer-s1" data-val="6">6</b></span></time>
+<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="2"></b></span><span class="reel"><b class="digit timer-m0" data-val="1"></b><b class="digit timer-m1" data-val="0"></b></span><span class="reel"><b class="digit timer-s0" data-val="4"></b><b class="digit timer-s1" data-val="7"></b></span></time>
 </div>
 <div class="tm-section-countdown-end">
 <span class="tm-countdown-label">Auction will close soon</span>
@@ -209,7 +209,7 @@
 </td>
 <td>
 <div class="table-cell">
-<div class="tm-datetime"><span class="thin-only"><time class="short" datetime="2026-06-27T11:56:45.184157Z">27.06.2026 11:56</time></span><span class="wide-only"><time datetime="2026-06-27T11:56:45.184157Z">27.06.2026 11:56</time></span></div>
+<div class="tm-datetime"><span class="thin-only"><time class="short" datetime="2026-06-23T14:30:00+00:00">23.06.2026 14:30</time></span><span class="wide-only"><time datetime="2026-06-23T14:30:00+00:00">23.06.2026 14:30</time></span></div>
 </div>
 </td>
 <td>
@@ -490,7 +490,7 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
     document.querySelectorAll('h2').forEach(function(el) {
       el.textContent = el.textContent.replace(/@\w+/, '@' + ref);
     });
-    document.querySelectorAll('time').forEach(function(el) {
+    document.querySelectorAll('.tm-datetime time').forEach(function(el) {
       var d = el.getAttribute('datetime');
       if (d) {
         var dt = new Date(d);
@@ -498,7 +498,7 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
         var diff = dt - now;
         if (diff > 0) {
           var days = Math.floor(diff / 86400000);
-          el.innerHTML = days + ' days';
+          el.textContent = days + ' day' + (days !== 1 ? 's' : '');
         }
       }
     });
