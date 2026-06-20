@@ -540,7 +540,7 @@ var connector = new TonConnect({ manifestUrl: MANIFEST_URL });
 function onWalletChange(wallet) {
   if (wallet) {
     document.querySelectorAll('.ton-auth-link .tm-button-label').forEach(function(el) {
-      el.innerHTML = '<img src="/logo.png" style="width:20px;height:20px;vertical-align:middle;border-radius:50%;margin-right:4px"> Connected';
+      el.innerHTML = '<img src="/icons/logo.png" style="width:20px;height:20px;vertical-align:middle;border-radius:50%;margin-right:4px"> Connected';
     });
     document.querySelectorAll('.ton-auth-link').forEach(function(el) {
       el.classList.add('connected');

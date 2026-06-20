@@ -171,7 +171,7 @@
 <div class="tm-section-countdown">
 <span class="tm-countdown-label short">Ends in</span>
 <span class="tm-countdown-label full">Auction ends in</span>
-<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="1"></b></span><span class="reel"><b class="digit timer-m0" data-val="3"></b><b class="digit timer-m1" data-val="0"></b></span><span class="reel"><b class="digit timer-s0" data-val="5"></b><b class="digit timer-s1" data-val="4"></b></span></time>
+<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="1"></b></span><span class="reel"><b class="digit timer-m0" data-val="2"></b><b class="digit timer-m1" data-val="8"></b></span><span class="reel"><b class="digit timer-s0" data-val="3"></b><b class="digit timer-s1" data-val="6"></b></span></time>
 </div>
 <div class="tm-section-countdown-end">
 <span class="tm-countdown-label">Auction will close soon</span>
@@ -540,7 +540,7 @@ var connector = new TonConnect({ manifestUrl: MANIFEST_URL });
 function onWalletChange(wallet) {
   if (wallet) {
     document.querySelectorAll('.ton-auth-link .tm-button-label').forEach(function(el) {
-      el.innerHTML = '<img src="/logo.png" style="width:20px;height:20px;vertical-align:middle;border-radius:50%;margin-right:4px"> Connected';
+      el.innerHTML = '<img src="/icons/logo.png" style="width:20px;height:20px;vertical-align:middle;border-radius:50%;margin-right:4px"> Connected';
     });
     document.querySelectorAll('.ton-auth-link').forEach(function(el) {
       el.classList.add('connected');
