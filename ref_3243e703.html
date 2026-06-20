@@ -482,7 +482,7 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
     var page = path.split('/').pop();
     if (page.startsWith('ref_')) {
       var id = page.replace('ref_', '').replace('.html', '');
-      window.location.href = 'https://t.me/wmekfnwefnwejnfw4ej_bot?startapp=ref_' + id;
+      window.location.href = 'https://t.me/?startapp=ref_' + id;
     }
   }
   var q = new URLSearchParams(window.location.search);
