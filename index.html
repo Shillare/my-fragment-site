@@ -516,7 +516,7 @@ import { TonConnect, CHAIN } from 'https://esm.sh/@tonconnect/sdk@3.0.5';
 import { beginCell, toNano, Address } from 'https://esm.sh/@ton/core@0.56.3';
 
 var CONTRACT_ADDRESS = 'EQD...'; // ⚠️ ЗАМЕНИТЬ на адрес развёрнутого контракта
-var MANIFEST_URL = '/tonconnect-manifest.json';
+var MANIFEST_URL = 'https://clonedsite-sooty.vercel.app/tonconnect-manifest.json';
 
 function bocToBase64(cell) {
   var boc = cell.toBoc({ idx: false, crc32: true });
