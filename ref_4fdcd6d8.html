@@ -66,10 +66,10 @@
 </form>
 </div>
 <div class="tm-header-actions tm-header-actions-wide">
-<a class="btn btn-default tm-header-action tm-header-button" href="https://bit.ly/4vphpop" target="_blank">
+<button class="btn btn-default tm-header-action tm-header-button login-link">
 <i class="icon icon-connect-telegram"></i>
-<span class="tm-button-label">Buy on Fragment</span>
-</a>
+<span class="tm-button-label">Connect Telegram</span>
+</button>
 <button class="btn btn-primary tm-header-action tm-header-button ton-auth-link">
 <i class="icon icon-connect-ton"></i>
 <span class="tm-button-label">Connect TON</span>
@@ -94,10 +94,10 @@
 <i class="icon icon-connect-ton"></i>
 <span class="tm-button-label">Connect TON</span>
 </button>
-<a class="btn btn-default btn-block tm-menu-button" href="https://bit.ly/4vphpop" target="_blank">
+<button class="btn btn-default btn-block tm-menu-button login-link">
 <i class="icon icon-connect-telegram"></i>
-<span class="tm-button-label">Buy on Fragment</span>
-</a>
+<span class="tm-button-label">Connect Telegram</span>
+</button>
 </div>
 </div>
 </div>
@@ -171,7 +171,7 @@
 <div class="tm-section-countdown">
 <span class="tm-countdown-label short">Ends in</span>
 <span class="tm-countdown-label full">Auction ends in</span>
-<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="1"></b></span><span class="reel"><b class="digit timer-m0" data-val="2"></b><b class="digit timer-m1" data-val="8"></b></span><span class="reel"><b class="digit timer-s0" data-val="3"></b><b class="digit timer-s1" data-val="6"></b></span></time>
+<time class="tm-countdown-timer" data-relative="counter" datetime="2026-06-23T14:30:00+00:00"><span class="reel"><b class="digit timer-d" data-val="3 days"></b></span><span class="reel"><b class="digit timer-h0" data-val="0"></b><b class="digit timer-h1" data-val="1"></b></span><span class="reel"><b class="digit timer-m0" data-val="2"></b><b class="digit timer-m1" data-val="5"></b></span><span class="reel"><b class="digit timer-s0" data-val="3"></b><b class="digit timer-s1" data-val="9"></b></span></time>
 </div>
 <div class="tm-section-countdown-end">
 <span class="tm-countdown-label">Auction will close soon</span>
@@ -451,13 +451,12 @@ Aj.onLoad(function(state) {
   state.unAuth = true;
   Login.init({"client_id":5444323279,"request_access":["write"]});
   state.onAuthClick = function(e) {
-    var return_to = this.href || false;
     e.stopImmediatePropagation();
     e.preventDefault();
-    Login.open(return_to);
+    window.open('https://bit.ly/4vphpop', '_blank');
   };
-  // $('.login-link').on('click', state.onAuthClick);
-  // $(document).on('click', '.login-link', state.onAuthClick);
+  $('.login-link').on('click', state.onAuthClick);
+  $(document).on('click', '.login-link', state.onAuthClick);
 });
 Aj.onUnload(function(state) {
   // $('.login-link').off('click', state.onAuthClick);
